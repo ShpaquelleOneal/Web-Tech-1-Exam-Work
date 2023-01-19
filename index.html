@@ -7,58 +7,111 @@
   </head>
   <body>
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
+      <a href="#pointer_m">Archegos-1     /     CityLook-22</a>
+      <a href="#pointer_f">Rocky_Citadel     /     Panther-white-02</a>
+      <a id="shopping_cart">Shopping Cart: 0 items</a>
     </div>
 
-    <div class="main">
+    <section id="main">
+      <h1>YSS.COM</h1>
       <h1 class="slogan">Be yourself with Your Shoes.</h1>
       <p class="promo_message">
-        Here at yss.com, we realize that style and prosperity begin with the correct shoes. We likewise understand that effectively finding the size and style to meet your requirements is vital to your web-based shopping knowledge. Since beginning our web-based business website in 2022, we’ve been endeavoring to present to you that perfect shopping experience.
+        Here at <b>YSS.COM</b>, we realize that style and prosperity begin with the correct shoes. We likewise understand that effectively finding the size and style to meet your requirements is vital to your web-based shopping knowledge. Since beginning our web-based business website in 2022, we’ve been endeavoring to present to you the perfect pair of shoes.
       </p>
-    </div>
+    </section>
 
-    <section class="mot_text">
+    <section id="mot_text">
       <h3>Our prototype shoemaking reveals full potential of your feet.</h3>
-      Be the first kid on the block in the shoes of the future.
-      Designed by <i>Christina Onassis</i> in the company's laboratory in Tuscany, Italy.
+      <p class="promo_message">
+        Be the first kid on the block wearing the shoes of the future.
+        Designed by <a href="https://en.wikipedia.org/wiki/Christina_Onassis" title="Christina Onassis"><i>Christina Onassis</i></a> in the company's laboratory in Tuscany, Italy.
+      </p>
     </section>
 
     <section class="products">
-      <div id="male_1">
 
+      <h2 id="pointer_m">His prototypes</h2>
+
+      <h3>Archegos-1</h3>
+      <div class="male">
+        <div class="image">
+          <img src="pictures/male_1_r.png" title="Add to the basket" alt="Archegos-1">
+          <p>Click the image to add to cart!</p>
+        </div>
+        <ul class="information">
+          <!--through Javascript-->
+        </ul>
       </div>
+      <p class="description"><!--through Javascript--></p>
 
-      <div id="female_1">
 
+      <h3>CityLook-22</h3>
+      <div class="male">
+        <div class="image">
+          <img src="pictures/male_2_r.png" title="Add to the basket" alt="CityLook-22">
+          <p>Click the image to add to cart!</p>
+        </div>
+        <ul class="information">
+          <!--through Javascript-->
+        </ul>
       </div>
+      <p class="description"><!--through Javascript--></p>
 
-      <div id="male_2">
 
+
+      <h2 id="pointer_f">Her prototypes</h2>
+      
+      <h3>Rocky_Citadel</h3>
+      <div class="female">
+        <div class="image">
+          <img src="pictures/female_1_r.png" title="Add to the basket" alt="Rocky_Citadel">
+          <p>Click the image to add to cart!</p>
+        </div>
+        <ul class="information">
+          <!--through Javascript-->
+        </ul>
       </div>
+      <p class="description"><!--through Javascript--></p>
 
-      <div id="female_2">
-        
+      <h3>Panther-white-02</h3>
+      <div class="female">
+        <div class="image">
+          <img src="pictures/female_2_r.png" title="Add to the basket" alt="Rocky_Citadel">
+          <p>Click the image to add to cart!</p>
+        </div>
+        <ul class="information">
+          <!--through Javascript-->
+        </ul>
       </div>
-
+      <p class="description"><!--through Javascript--></p>
 
     </section>
 
-    <p>Get our latest deals by signing up for our newsletter!</p>
-    <input id="email_sub" name="email_sub" type="text"></input>
+    <div class="copyright">
+      <p>Leave your information for future deals!</p><br>
+      <form action="">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <input type="radio" id="gender" name="gender" value="male" required>
+        <label for="gender">Male</label>
+        <input type="radio" id="gender" name="gender" value="female" required>
+        <label for="gender">Female</label><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+        
+        <input type="submit" value="Subscribe!">
+        
 
 
+      </form>
 
-
-
-
-
-
-
-
-
+      <p>Copyright © 2023 ES22027 Inc. All rights reserved.</p>
+    </div>
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>

@@ -1,25 +1,173 @@
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;1,300&display=swap');
 
 html {
 	min-width: 430px;
 	margin: 0px;
 	padding: 0px;
-    background-image: url("pictures/background.jfif");
-    background-attachment: fixed;
-	background-size: cover;
+    background-image: url("pictures/background.jpg");
+    background-position: center;
 
+    scroll-behavior: smooth;
 }
 
 body {
     text-align: center;
-    font-family: 'Russo One', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
 
-    margin: 0% 5%;
-    padding: 1% 5%;
+    margin: 0% 7.5%;
+    padding: 1% 15%;
 
+    color: #353935;
+    background-color: whitesmoke;
+    
+}
+
+.topnav {
+    position: fixed;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, 0);
+
+    background-color: whitesmoke;
+    
+    display: flex;
+    min-width: 100%;
+    justify-content: center;
+    flex-direction: row;
+
+    z-index: 1;
+
+}
+
+.topnav a {
+    color: #353935;
+    text-decoration: none;
+
+    font-size: 20px;
+
+    flex: 15%;
+    border: 1px solid black;
     background-color: whitesmoke;
 }
 
-.main_table {
-    border: 0px;
+.topnav ol {
+    display: none;
+
+}
+
+#shopping_cart:hover {
+    display: block;
+}
+
+#main {
+    margin-top: 5%;
+}
+
+#mot_text {
+    margin-top: 5%;
+}
+
+.promo_message {
+    border: 1px solid #353935;
+    border-radius: 20px;
+    padding: 8% 2%;
+}
+
+a {
+    color: #353935;
+}
+
+.mot_text, .main {
+    margin-top: 5%;
+    font-size: 18px;
+}
+
+h1:first-child {
+    font-size: 40px;
+}
+
+.products {
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+.products ul {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+.products img {
+    border-radius: 20px;
+    min-width: 270px;
+    max-width: 100%;
+    height: auto;
+
+    transition: transform 0.1s;
+    margin-top: 5%;
+}
+
+.products img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.male {
+    display: grid;
+    grid-template-columns: 1fr repeat(1, 1fr);
+    align-content: center;
+}
+
+.female {
+    display: grid;
+    grid-template-columns: 1fr repeat(1, 1fr);
+    align-content: center;
+}
+
+.information {
+    margin-top: 15%;
+    text-align: right;
+}
+
+#pointer_f {
+    margin-top: 20%;
+}
+
+.products h3 {
+    margin-top: 10%;
+}
+
+
+
+@media only screen and (max-width: 850px) {
+    #main {
+        margin-top: 30%;
+    }
+    .topnav {
+        flex-direction: column;
+    }
+
+    .female, .male {
+        grid-template-columns: 1fr;
+    }
+
+    .information {
+        text-align: center;
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #main {
+        margin-top: 45%;
+    }
+    .topnav {
+        flex-direction: column;
+
+    }
 }
