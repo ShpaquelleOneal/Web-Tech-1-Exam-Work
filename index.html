@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Your Shoes Shop | YSS.com</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="shoes_data.js"></script>
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
     <div class="topnav">
       <a href="#pointer_m">Archegos-1     /     CityLook-22</a>
       <a href="#pointer_f">Rocky_Citadel     /     Panther-white-02</a>
-      <a id="shopping_cart">Shopping Cart: 0 items</a>
+      <div id="shopping_cart">
+        Shopping Cart:
+        <ol id="cart_list" style="display:none;">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>Total: </li>
+
+        </ol>
+      </div>
+      
     </div>
 
     <section id="main">
@@ -33,9 +50,9 @@
       <h2 id="pointer_m">His prototypes</h2>
 
       <h3>Archegos-1</h3>
-      <div class="male">
+      <div class="male" class="make_list">
         <div class="image">
-          <img src="pictures/male_1_r.png" title="Add to the basket" alt="Archegos-1">
+          <img class="prod_img" src="pictures/male_1_r.png" title="Add to the basket" alt="Archegos-1">
           <p>Click the image to add to cart!</p>
         </div>
         <ul class="information">
@@ -46,9 +63,9 @@
 
 
       <h3>CityLook-22</h3>
-      <div class="male">
+      <div class="male" class="make_list">
         <div class="image">
-          <img src="pictures/male_2_r.png" title="Add to the basket" alt="CityLook-22">
+          <img class="prod_img" src="pictures/male_2_r.png" title="Add to the basket" alt="CityLook-22">
           <p>Click the image to add to cart!</p>
         </div>
         <ul class="information">
@@ -62,9 +79,9 @@
       <h2 id="pointer_f">Her prototypes</h2>
       
       <h3>Rocky_Citadel</h3>
-      <div class="female">
+      <div class="female" class="make_list">
         <div class="image">
-          <img src="pictures/female_1_r.png" title="Add to the basket" alt="Rocky_Citadel">
+          <img class="prod_img" src="pictures/female_1_r.png" title="Add to the basket" alt="Rocky_Citadel">
           <p>Click the image to add to cart!</p>
         </div>
         <ul class="information">
@@ -74,9 +91,9 @@
       <p class="description"><!--through Javascript--></p>
 
       <h3>Panther-white-02</h3>
-      <div class="female">
+      <div class="female" class="make_list">
         <div class="image">
-          <img src="pictures/female_2_r.png" title="Add to the basket" alt="Rocky_Citadel">
+          <img class="prod_img" src="pictures/female_2_r.png" title="Add to the basket" alt="Panther-white-02">
           <p>Click the image to add to cart!</p>
         </div>
         <ul class="information">
@@ -87,11 +104,9 @@
 
     </section>
 
-    <div class="copyright">
+    <div class="footer" id="subscribe">
       <p>Leave your information for future deals!</p><br>
-      <form action="">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+      <form method="get">
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
@@ -102,16 +117,15 @@
         <label for="gender">Female</label><br><br>
 
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age"><br><br>
+        <input type="number" id="age" name="age">
+        <p id="valid_not"><p><br><br>
         
-        <input type="submit" value="Subscribe!">
+        <input id="submit_b" type="submit" value="Subscribe!">
         
-
-
       </form>
 
       <p>Copyright © 2023 ES22027 Inc. All rights reserved.</p>
     </div>
-    <script src="script.js"></script>
+
   </body>
 </html>
