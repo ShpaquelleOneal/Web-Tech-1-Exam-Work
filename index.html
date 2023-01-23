@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +9,18 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <script type="text/javascript" src="shoes_data.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="shoes_data.js"></script>
+    <script src="script.js"></script>
   </head>
+
   <body>
     <div class="topnav">
       <a href="#pointer_m">Archegos-1     /     CityLook-22</a>
       <a href="#pointer_f">Rocky_Citadel     /     Panther-white-02</a>
       <div id="shopping_cart">
-        Shopping Cart:
+        <p id="shop_text">Shopping Cart >></p>
         <ol id="cart_list" style="display:none;">
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>Total: </li>
-
         </ol>
       </div>
       
@@ -50,7 +47,7 @@
       <h2 id="pointer_m">His prototypes</h2>
 
       <h3>Archegos-1</h3>
-      <div class="male" class="make_list">
+      <div class="male make_list">
         <div class="image">
           <img class="prod_img" src="pictures/male_1_r.png" title="Add to the basket" alt="Archegos-1">
           <p>Click the image to add to cart!</p>
@@ -63,7 +60,7 @@
 
 
       <h3>CityLook-22</h3>
-      <div class="male" class="make_list">
+      <div class="male make_list">
         <div class="image">
           <img class="prod_img" src="pictures/male_2_r.png" title="Add to the basket" alt="CityLook-22">
           <p>Click the image to add to cart!</p>
@@ -79,7 +76,7 @@
       <h2 id="pointer_f">Her prototypes</h2>
       
       <h3>Rocky_Citadel</h3>
-      <div class="female" class="make_list">
+      <div class="female make_list">
         <div class="image">
           <img class="prod_img" src="pictures/female_1_r.png" title="Add to the basket" alt="Rocky_Citadel">
           <p>Click the image to add to cart!</p>
@@ -91,7 +88,7 @@
       <p class="description"><!--through Javascript--></p>
 
       <h3>Panther-white-02</h3>
-      <div class="female" class="make_list">
+      <div class="female make_list">
         <div class="image">
           <img class="prod_img" src="pictures/female_2_r.png" title="Add to the basket" alt="Panther-white-02">
           <p>Click the image to add to cart!</p>
@@ -104,28 +101,28 @@
 
     </section>
 
+    <p id="suc_subscr">Thanks for subscribing!</p>
     <div class="footer" id="subscribe">
       <p>Leave your information for future deals!</p><br>
-      <form method="get">
+      <form id="form" target="_blank" action="https://www.w3schools.com/action_page.php" method="post">
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
 
-        <input type="radio" id="gender" name="gender" value="male" required>
-        <label for="gender">Male</label>
-        <input type="radio" id="gender" name="gender" value="female" required>
-        <label for="gender">Female</label><br><br>
+        <input type="radio" id="male_gender" name="gender" value="male" required>
+        <label for="male_gender">Male</label>
+        <input type="radio" id="fem_gender" name="gender" value="female" required>
+        <label for="fem_gender">Female</label><br><br>
 
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age">
+        <input type="text" id="age" name="age" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
         <p id="valid_not"><p><br><br>
         
         <input id="submit_b" type="submit" value="Subscribe!">
         
       </form>
-
-      <p>Copyright © 2023 ES22027 Inc. All rights reserved.</p>
     </div>
+    <p>Copyright © 2023 ES22027 Inc. All rights reserved.</p>
 
   </body>
 </html>

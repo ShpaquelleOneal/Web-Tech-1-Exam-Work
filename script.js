@@ -1,4 +1,5 @@
-function setList () { //fills description and information about the product
+//fills description and information about the product
+function setList () { 
     let ulist = document.getElementsByClassName("information");
     let descrlist = document.getElementsByClassName("description");
     for(let x in ulist) {
@@ -6,6 +7,8 @@ function setList () { //fills description and information about the product
             if (i == "Description") {
                 let text = document.createTextNode(shoes[x][i]);
                 descrlist[x].appendChild(text);
+            } else if (i == "Cart") {
+                continue;
             } else {
                 let data = document.createElement("li");
                 let newContent = document.createTextNode(i + ": "+ shoes[x][i]);
@@ -17,7 +20,9 @@ function setList () { //fills description and information about the product
 }
 
 
+
 window.addEventListener('DOMContentLoaded', (event) => {
+    
     setList();
     
     //add event listeners on product images
@@ -25,47 +30,79 @@ window.addEventListener('DOMContentLoaded', (event) => {
     for (let shoe of shoe_img) {
         shoe.addEventListener("click", updateCart);
     }
+
     //add to cart array on clicking the product picture
-    var shopping_cart_orders = [];
-    var shopping_cart = document.getElementById("shopping_cart");
+    var cart_list = document.getElementById("cart_list");
+    var shop_text = document.getElementById("shop_text");
     function updateCart () {
+
+        cart_list.innerHTML = ""; //clear ol first
+
         //check which shoes beign clicked and add +1 to cart (located in shoes_data.js)
         for (let x in shoes) {
-            if(this.alt == x[0]) {
-                x[4]++;
+            if(this.alt == shoes[x]["Name"]) {
+                shoes[x]["Cart"]++;
+                break;
             }
         }
 
-        
-    
-        if(shopping_cart_orders.length == 1) {
-            shopping_cart.innerHTML = "Shopping Cart: " + shopping_cart_orders.length + " item";
-        } else {
-            shopping_cart.innerHTML = "Shopping Cart: " + shopping_cart_orders.length + " items";
+        let count = 0; // amount of total added orders
+
+        for (let x in shoes) { //display separate items with number chosen
+            if (shoes[x]["Cart"] > 0) {
+                let item = document.createElement("li");
+                item.innerHTML = shoes[x]["Name"] + ": " + shoes[x]["Cart"];
+                cart_list.append(item);
+                count += shoes[x]["Cart"];
+            }
         }
 
-        
+        //add Total and Clear button as last <li>
+        let item = document.createElement("li");
+        item.innerHTML = "Total: " + count + " item/s";
+        cart_list.append(item);
+        let item_2 = document.createElement("li");
+        item_2.innerHTML = "Clear the shopping cart.";
+        item_2.setAttribute("id", "delete");
+        cart_list.append(item_2);
+
+        //add delete functionality
+        let delete_b = document.getElementById("delete");
+        delete_b.addEventListener("click", deleteButton);
+
+        if (count > 0) {
+            shop_text.style.fontWeight = "bold";
+        }
 
     }
 
-
-
-
+    function deleteButton () {
+        for (let x in shoes) {
+            shoes[x]["Cart"] = 0;
+        }
+        updateCart();
+        shop_text.style.fontWeight = "normal";
+    }
 
     //show / hide shopping cart button
-    shopping_cart.addEventListener("click", showCart);
+    document.getElementById("shop_text").addEventListener("click", showCart);
     function showCart() {
         let cart = document.getElementById("cart_list");
-        if (cart.style.display == "none") cart.style.display = "block";
-        else if (cart.style.display == "block") cart.style.display = "none";
+        if (cart.style.display == "none") {
+            cart.style.display = "block";
+            shop_text.innerHTML = "Shopping Cart \\/";
+        } else if (cart.style.display == "block") { 
+            cart.style.display = "none";
+            shop_text.innerHTML = "Shopping Cart >>";
+        }
+        updateCart();
     }
-    
 
     //data validation on age input form
     var age = document.getElementById("age");
     age.addEventListener("change", validation);
+    var text = document.getElementById("valid_not");
     function validation () {
-        let text = document.getElementById("valid_not");
         if (parseInt(age.value) <= 5) {
             age.style.border = "1px solid red";
             text.innerHTML = age.value + " is not a valid age";
@@ -74,16 +111,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
         } else {
             age.style.removeProperty("border");
             text.innerHTML = " ";
-
+            age.value = Math.ceil(age.value);
         }
     }
 
+    //hide on subscribing JQuery use
+    var submit_b = document.getElementById("form");
+    submit_b.addEventListener("submit", submitMessage);
 
-    
+    $(document).ready(function() {
+        $("#suc_subscr").hide();
+    });
 
-
-
-    
-    
+    function submitMessage() {
+        $("#suc_subscr").show();
+        $("#subscribe").hide();
+    }
 
 });

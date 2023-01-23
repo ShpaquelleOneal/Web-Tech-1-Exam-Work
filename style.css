@@ -2,8 +2,8 @@
 
 html {
 	min-width: 430px;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
     background-image: url("pictures/background.jpg");
     background-position: center;
 
@@ -11,22 +11,22 @@ html {
 }
 
 body {
-    text-align: center;
+    background-color: whitesmoke;
+    color: #353935;
+
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
 
-    margin: 0% 7.5%;
+    margin: 0 7.5%;
     padding: 1% 15%;
 
-    color: #353935;
-    background-color: whitesmoke;
-    
+    text-align: center;
 }
 
 .topnav {
     position: fixed;
     left: 50%;
-    top: 0%;
+    top: 0;
     transform: translate(-50%, 0);
 
     background-color: whitesmoke;
@@ -53,6 +53,10 @@ body {
     white-space:nowrap;
 }
 
+.topnav a {
+    border-right: 0;
+}
+
 #cart_list {
     padding-left: 0;
     margin-bottom: 0;
@@ -63,20 +67,32 @@ body {
     width: 33%;
 }
 
-#shopping_cart:hover {
+#shop_text:hover, #cart_list li:last-child:hover {
     cursor: pointer;
 }
 
 #cart_list li {
     border: 1px solid black;
+    border-bottom: 0;
 
     background-color: whitesmoke;
     list-style: decimal inside none;
     text-align: left;
 }
 
-#cart_list li:last-child {
+#cart_list li:nth-last-child(-n + 2) {
     list-style-type: none;
+    
+}
+
+#cart_list li:last-child {
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+#shop_text {
+    margin: 0;
+    font-weight: normal;
 }
 
 
@@ -134,17 +150,10 @@ h1:first-child {
     cursor: pointer;
 }
 
-
-.male {
+.female, .male {
+    align-content: center;
     display: grid;
     grid-template-columns: 1fr repeat(1, 1fr);
-    align-content: center;
-}
-
-.female {
-    display: grid;
-    grid-template-columns: 1fr repeat(1, 1fr);
-    align-content: center;
 }
 
 .information {
@@ -158,6 +167,11 @@ h1:first-child {
 
 .products h3 {
     margin-top: 10%;
+}
+
+#suc_subscr {
+    color: red;
+    font-weight: bold;
 }
 
 
@@ -178,14 +192,15 @@ h1:first-child {
         text-align: center;
         margin-top: 5%;
     }
+
+    #cart_list {
+        padding-left: 0;
+        margin-bottom: 0;
+    
+        position: absolute;
+        top: 79.5%;
+    
+        width: 99.8%;
+    }
 }
 
-@media only screen and (max-width: 600px) {
-    #main {
-        margin-top: 45%;
-    }
-    .topnav {
-        flex-direction: column;
-
-    }
-}
