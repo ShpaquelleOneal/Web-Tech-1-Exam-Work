@@ -19,8 +19,6 @@ function setList () {
     }
 }
 
-
-
 window.addEventListener('DOMContentLoaded', (event) => {
     
     setList();
@@ -103,7 +101,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     age.addEventListener("change", validation);
     var text = document.getElementById("valid_not");
     function validation () {
-        if (parseInt(age.value) <= 5) {
+        if (parseInt(age.value) <= 5 || parseInt(age.value) >= 100) {
             age.style.border = "1px solid red";
             text.innerHTML = age.value + " is not a valid age";
             text.style.color = "red";
